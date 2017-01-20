@@ -14,9 +14,8 @@ You have complete control over when you generate and use the content.
 
 ## Installation
 
-You will need access to the ai-invent GitHub repo in order to install this
-package. Once you have access, you can use `pip` to install as follows:
-`pip install git+ssh://git@github.com/ai-invent/wordsmith-python-sdk.git`
+Use `pip` to install as follows:
+`pip install wordsmith`
 
 ## Basic Usage
 
