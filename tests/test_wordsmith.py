@@ -17,22 +17,14 @@ class TestWordsmith(object):
     def test_list_all_projects(self):
         #ws = Wordsmith(API_KEY)
         projects = [project.name for project in self.ws.projects]
-        assert projects == ['Real Estate',
-                            'Ecommerce',
-                            'Business Intelligence',
-                            'Tutorial',
-                            'Test']
+        assert projects == ['Test']
 
     def test_list_all_projects_with_custom_base_url(self):
         ws = Wordsmith(API_KEY,
                        user_agent='python sdk test suite',
                        base_url='https://api.automatedinsights.com/v1')
         projects = [project.name for project in ws.projects]
-        assert projects == ['Real Estate',
-                            'Ecommerce',
-                            'Business Intelligence',
-                            'Tutorial',
-                            'Test']
+        assert projects == ['Test']
 
     def test_find_project_by_slug(self):
         project = self.ws.project('test')
@@ -47,8 +39,8 @@ class TestWordsmith(object):
             template = self.ws.project('test').template('fake template')
 
     def test_find_project_by_name(self):
-        matches = self.ws.find_project('Real Estate')
-        assert matches[0].name == 'Real Estate'
+        matches = self.ws.find_project('Test')
+        assert matches[0].name == 'Test'
 
     def test_find_template_that_exists(self):
         matches = self.ws.project('test').find_template('Test')
