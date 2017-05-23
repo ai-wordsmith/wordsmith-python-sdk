@@ -12,7 +12,7 @@ class TestSomeStuff(TestWordsmith):
         self.ws = super().initialize()
 
     def test_config_specifying_base_url(self):
-        ws = Wordsmith(API_KEY,
+        ws = Wordsmith(self.ws.config.api_key,
                        user_agent='python sdk test suite',
                        base_url='https://api.automatedinsights.com/v1')
 
@@ -21,7 +21,7 @@ class TestSomeStuff(TestWordsmith):
         assert projects == ['Test']
 
     def test_list_all_projects_with_custom_base_url(self):
-        ws = Wordsmith(API_KEY,
+        ws = Wordsmith(self.ws.config.api_key,
                        user_agent='python sdk test suite',
                        base_url='https://api.automatedinsights.com/v1')
         projects = [project.name for project in ws.projects]
