@@ -3,14 +3,13 @@ from wordsmith import (Wordsmith,
                        ProjectSlugError,
                        TemplateSlugError,
                        NarrativeGenerateError)
+from tests.fixtures import TestWordsmith
 
-API_KEY = '923b278a6088675262af64ceb437bab31d7ebc6b07aaf89f88b0b88dd4fe2a97'
 
-
-class TestWordsmith(object):
+class TestSomeStuff(TestWordsmith):
 
     def setup(self):
-        self.ws = Wordsmith(API_KEY, user_agent='python sdk test suite')
+        self.ws = super().initialize()
 
     def test_config_specifying_base_url(self):
         ws = Wordsmith(API_KEY,
