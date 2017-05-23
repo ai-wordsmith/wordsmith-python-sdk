@@ -1,7 +1,11 @@
 import pytest
-from wordsmith import Wordsmith, ProjectSlugError, TemplateSlugError, NarrativeGenerateError
+from wordsmith import (Wordsmith,
+                       ProjectSlugError,
+                       TemplateSlugError,
+                       NarrativeGenerateError)
 
 API_KEY = '923b278a6088675262af64ceb437bab31d7ebc6b07aaf89f88b0b88dd4fe2a97'
+
 
 class TestWordsmith(object):
 
@@ -13,9 +17,7 @@ class TestWordsmith(object):
                        user_agent='python sdk test suite',
                        base_url='https://api.automatedinsights.com/v1')
 
-
     def test_list_all_projects(self):
-        #ws = Wordsmith(API_KEY)
         projects = [project.name for project in self.ws.projects]
         assert projects == ['Test']
 
@@ -52,12 +54,14 @@ class TestWordsmith(object):
 
     def test_generate_narrative(self):
         data = {'a': 1, 'b': 1, 'c': 1}
-        narr = self.ws.project('test').template('test').generate_narrative(data).text
+        narr = self.ws.project('test')\
+            .template('test').generate_narrative(data).text
         assert narr == 'The value of A is 1.'
 
     def test_batch_generate_narrative(self):
         data = [{'a': i, 'b': i, 'c': i} for i in range(10)]
-        expected_outputs = ['The value of A is {}.'.format(i) for i in range(10)]
+        expected_outputs = ['The value of A is {}.'.format(i)
+                            for i in range(10)]
         narrs = self.ws.project('test').template('test').batch_narrative(data)
         narrs.generate()
         for expected, actual in zip(expected_outputs, narrs.narratives):
@@ -72,11 +76,14 @@ class TestWordsmith(object):
         narrs = self.ws.project('test').template('test').batch_narrative(data)
         narrs.break_on_error = False
         narrs.generate()
-        expected_narratives = ['The value of A is 1.', None, 'The value of A is 1.']
+        expected_narratives = ['The value of A is 1.',
+                               None,
+                               'The value of A is 1.']
         actual_narratives = []
         for n in narrs.narratives:
             actual_narratives.append(n.text if n is not None else None)
-        assert (expected_narratives == actual_narratives) and (len(narrs.errors) == 1)
+        assert (expected_narratives == actual_narratives)\
+            and (len(narrs.errors) == 1)
 
     def test_bad_batch_generate_break(self):
         with pytest.raises(NarrativeGenerateError):
@@ -85,11 +92,13 @@ class TestWordsmith(object):
                 {'d': 1, 'e': 1},
                 {'a': 1, 'b': 1, 'c': 1}
             ]
-            narrs = self.ws.project('test').template('test').batch_narrative(data)
+            narrs = self.ws.project('test')\
+                .template('test').batch_narrative(data)
             narrs.break_on_error = True
             narrs.generate()
 
     def test_wordsmith_400_error(self):
         with pytest.raises(NarrativeGenerateError):
             data = {'not_a_valid_column': 0}
-            narr = self.ws.project('test').template('test').generate_narrative(data)
+            narr = self.ws.project('test')\
+                .template('test').generate_narrative(data)
