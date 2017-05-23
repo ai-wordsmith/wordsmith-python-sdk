@@ -19,7 +19,8 @@ class Configuration(object):
                            should be sent with each API request
         """
 
-    DEFAULT_URL = 'https://api.automatedinsights.com/v1'
+    DEFAULT_VERSION = '1'
+    DEFAULT_URL = 'https://api.automatedinsights.com/v' + DEFAULT_VERSION
     DEFAULT_USER_AGENT = 'PythonSDK/' + __version__
 
     def __init__(self, api_key, **kwargs):
@@ -28,6 +29,8 @@ class Configuration(object):
             else self.DEFAULT_URL
         self.user_agent = kwargs['user_agent'] if 'user_agent' in kwargs\
             else self.DEFAULT_USER_AGENT
+        self.version = kwargs['version'] if 'version' in kwargs\
+            else self.DEFAULT_VERSION
 
     def get_headers(self):
         """

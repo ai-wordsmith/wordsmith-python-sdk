@@ -27,11 +27,7 @@ class Wordsmith(object):
 
     def __init__(self, api_key, **kwargs):
         self.projects = []
-        self.config = Configuration(api_key)
-        if 'base_url' in kwargs:
-            self.config.base_url = kwargs['base_url']
-        if 'user_agent' in kwargs:
-            self.config.user_agent = kwargs['user_agent']
+        self.config = Configuration(api_key, **kwargs)
         response = requests.get(self.config.base_url + '/projects',
                                 headers=self.config.get_headers())
         if response.status_code == 200:
