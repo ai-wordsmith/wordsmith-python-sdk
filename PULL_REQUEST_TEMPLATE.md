@@ -10,7 +10,6 @@
 
 #### How should PR reviewers test this?
 - Unit tests:
-  - `rake` (...OR replace with specific test files to run)
 - Manual tests:
   - What features need to be on or off?
   - Detailed description of how to reproduce
