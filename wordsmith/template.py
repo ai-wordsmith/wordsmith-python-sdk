@@ -5,9 +5,6 @@ wordsmith.template
 This module implements the Wordsmith template object.
 """
 
-import requests
-import json
-from multiprocessing.dummy import Pool
 from .narrative import Narrative, Batch
 
 

@@ -25,7 +25,7 @@ class TestProject(TestWordsmith):
 
     def test_bad_project_raises_error(self):
         with pytest.raises(ProjectSlugError):
-            project = self.ws.project('fake project')
+            self.ws.project('fake project')
 
     '''
     TODO
