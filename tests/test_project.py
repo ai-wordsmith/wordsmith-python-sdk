@@ -1,5 +1,5 @@
 import pytest
-from wordsmith import Wordsmith
+from wordsmith import Wordsmith, ProjectSlugError
 from tests.fixtures import TestWordsmith
 
 
@@ -26,3 +26,18 @@ class TestProject(TestWordsmith):
     def test_bad_project_raises_error(self):
         with pytest.raises(ProjectSlugError):
             project = self.ws.project('fake project')
+
+    '''
+    TODO
+    def test_schema
+        project = Wordsmith::Project.find 'test'
+        expected = {a: 'Number', b: 'Number', c: 'Number'}
+        assert_equal expected, project.schema
+      end
+
+      def test_template_collection_exists
+        project = Wordsmith::Project.find('test')
+        assert_instance_of Wordsmith::TemplateCollection, project.templates
+      end
+    end
+    '''
