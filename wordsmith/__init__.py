@@ -9,6 +9,6 @@ from .exceptions import (ProjectSlugError,
                          NarrativeGenerateError)
 
 __title__ = 'wordsmith'
-__version__ = '0.5'
+__version__ = '0.5.1'
 __author__ = 'John Hegele'
 __copyright__ = 'Copyright 2016 Automated Insights'
