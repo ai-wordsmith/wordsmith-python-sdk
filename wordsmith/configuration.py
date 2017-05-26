@@ -4,7 +4,6 @@ wordsmith.configuration
 
 This module implements the Wordsmith configuration object.
 """
-from . import __version__
 
 
 class Configuration(object):
@@ -21,7 +20,7 @@ class Configuration(object):
 
     DEFAULT_VERSION = '1'
     DEFAULT_URL = 'https://api.automatedinsights.com/v' + DEFAULT_VERSION
-    DEFAULT_USER_AGENT = 'PythonSDK/' + __version__
+    DEFAULT_USER_AGENT = 'PythonSDK'
 
     def __init__(self, api_key, **kwargs):
         self.api_key = api_key
