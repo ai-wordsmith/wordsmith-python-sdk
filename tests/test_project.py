@@ -28,7 +28,7 @@ class TestProject(TestWordsmith):
             self.ws.project('fake project')
 
     '''
-    TODO
+    TODO - these tests from ruby version
     def test_schema
         project = Wordsmith::Project.find 'test'
         expected = {a: 'Number', b: 'Number', c: 'Number'}
