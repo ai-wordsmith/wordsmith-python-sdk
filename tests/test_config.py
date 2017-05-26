@@ -1,4 +1,3 @@
-import pytest
 from wordsmith import Wordsmith
 from tests.fixtures import TestWordsmith
 

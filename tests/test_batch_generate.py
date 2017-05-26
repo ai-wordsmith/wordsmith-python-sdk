@@ -50,5 +50,5 @@ class TestProject(TestWordsmith):
     def test_wordsmith_400_error(self):
         with pytest.raises(NarrativeGenerateError):
             data = {'not_a_valid_column': 0}
-            narr = self.ws.project('test')\
+            self.ws.project('test')\
                 .template('test').generate_narrative(data)

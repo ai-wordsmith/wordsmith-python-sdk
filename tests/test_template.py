@@ -10,7 +10,7 @@ class TestProject(TestWordsmith):
 
     def test_bad_template_raises_error(self):
         with pytest.raises(TemplateSlugError):
-            template = self.ws.project('test').template('fake template')
+            self.ws.project('test').template('fake template')
 
     def test_find_project_by_name(self):
         matches = self.ws.find_project('Test')
@@ -29,4 +29,3 @@ class TestProject(TestWordsmith):
         narr = self.ws.project('test')\
             .template('test').generate_narrative(data).text
         assert narr == 'The value of A is 1.'
-    
