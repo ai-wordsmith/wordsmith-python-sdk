@@ -52,8 +52,8 @@ class Narrative(object):
             self.text = None
             raise NarrativeGenerateError(response, data)
 
-        def __str__(self):
-            return self.text
+    def __str__(self):
+        return self.text
 
 
 class Batch(object):
