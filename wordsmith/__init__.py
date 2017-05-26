@@ -1,3 +1,4 @@
+# flake8: noqa: F401
 from .wordsmith import Wordsmith
 from .configuration import Configuration
 from .project import Project
