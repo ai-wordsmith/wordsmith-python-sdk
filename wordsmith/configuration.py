@@ -6,6 +6,11 @@ This module implements the Wordsmith configuration object.
 """
 
 
+DEFAULT_VERSION = '1'
+DEFAULT_URL = 'https://api.automatedinsights.com/v' + DEFAULT_VERSION
+DEFAULT_USER_AGENT = 'PythonSDK'
+
+
 class Configuration(object):
     """
         Constructs a :class:`Wordsmith <Configuration>` object.
@@ -17,10 +22,6 @@ class Configuration(object):
         :param user_agent: (optional) String representing the user agent that
                            should be sent with each API request
         """
-
-    DEFAULT_VERSION = '1'
-    DEFAULT_URL = 'https://api.automatedinsights.com/v' + DEFAULT_VERSION
-    DEFAULT_USER_AGENT = 'PythonSDK'
 
     def __init__(self, api_key, **kwargs):
         self.api_key = api_key
